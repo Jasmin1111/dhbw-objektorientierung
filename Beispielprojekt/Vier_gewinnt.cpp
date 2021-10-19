@@ -26,24 +26,25 @@ public:
 };
 
 enum Farbe {
-	schwarz,
-	gelb,
-	rot
+	black,
+	yellow,
+	red
 };
 
 void print_matrix(vector<vector<Farbe>>);
 void sind_vier_elemente_gleich(Farbe, Farbe, Farbe, Farbe, bool&);
 bool vier_gleiche_in_matrix(const vector< vector<Farbe> >&, size_t, size_t);
 
+
 int main()
 {
-	/*
+
 	vector<vector<Farbe>> matrix(6, vector<Farbe>(7));
 	for (vector<Farbe> zeile : matrix)
 	{
-		for (Farbe elem : zeile)
+		for (Farbe& elem : zeile)
 		{
-			elem = schwarz;
+			elem = yellow;
 			cout << elem << " ";
 		}
 		cout << endl;
@@ -52,7 +53,7 @@ int main()
 
 	print_matrix(matrix);
 	cout << endl;
-	*/
+
 
 	vector<vector<Farbe>> m(6, vector<Farbe>(7));
 
@@ -62,11 +63,11 @@ int main()
 		{
 			if (spalte % 2 == 0)
 			{
-				m.at(zeile).at(spalte) = schwarz;
+				m.at(zeile).at(spalte) = black;
 			}
 			else
 			{
-				m.at(zeile).at(spalte) = schwarz;
+				m.at(zeile).at(spalte) = black;
 			}
 		}
 	}
@@ -74,11 +75,11 @@ int main()
 	cout << endl;
 	cout << "\nEs gibt vier gleiche: " << vier_gleiche_in_matrix(m, 6, 7)<< endl;
 
-	cout << "\n mit vier gelben Elementen" << endl;
-	m.at(0).at(0) = gelb;
-	m.at(0).at(1) = gelb;
-	m.at(0).at(2) = gelb;
-	m.at(0).at(3) = gelb;
+	cout << "\n mit vier yellowen Elementen" << endl;
+	m.at(0).at(0) = yellow;
+	m.at(0).at(1) = yellow;
+	m.at(0).at(2) = yellow;
+	m.at(0).at(3) = yellow;
 
 	print_matrix(m);
 	
@@ -104,7 +105,7 @@ void sind_vier_elemente_gleich(Farbe c0, Farbe c1, Farbe c2, Farbe c3, bool& vie
 {
 	bool alle_gleich;
 	alle_gleich = ((c0 == c1) && (c1 == c2) && (c2 == c3));
-	if (alle_gleich && ((c1 == gelb) || (c1 == rot)))
+	if (alle_gleich && ((c1 == yellow) || (c1 == red)))
 	{
 		vier_gleiche = true;
 	}
